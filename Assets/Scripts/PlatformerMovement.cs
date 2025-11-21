@@ -12,6 +12,8 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody2D), typeof(CircleCollider2D), typeof(CapsuleCollider2D))]
 public class PlatformerMovement : MonoBehaviour
 {
+    public InputActionAsset PlayerAction;
+    public Animator Animator;
     [SerializeField] private float maxSpeed = 10f;
     [SerializeField] private float jumpForce = 10f;
     // [SerializeField] private float gravityMultiplier = 1;    //unused
@@ -48,6 +50,16 @@ public class PlatformerMovement : MonoBehaviour
     
     void Update()
     {
+        /*if (PlayerAction.FindAction("TestAction").IsPressed())
+        {
+            Animator.SetBool("isRunning", true);
+        }
+        else
+        {
+            Animator.SetBool("isRunning", false);
+        }*/
+        //Animator.SetBool("isRunning", true);
+        
         velocity = TranslateInputToVelocity(moveInput);
         
         // Apply jump-input:
